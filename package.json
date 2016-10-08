@@ -1,0 +1,16 @@
+{
+  "name": "combiner",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "csvtojson": "^1.0.3",
+    "json2csv": "^3.7.0",
+    "list-directory-contents": "0.0.3"
+  }
+}
