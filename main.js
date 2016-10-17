@@ -40,11 +40,12 @@ ls('firefox/', function(err, tree)
         var fields = ["Time", 'COMBINED'];
         for(var file_name in files)
         {
-            var short_file_name = file_name.substring(23, file_name.length - 4);
+			var last_underscore = file_name.lastIndexOf('_');
+            var short_file_name = file_name.substring(last_underscore+1, file_name.length - 4);
+
             fields.push(short_file_name);
 
             var file = files[file_name];
-            if(file[0].Value < 825) continue;
             for(var id in file)
             {
                 var object = file[id];
@@ -52,10 +53,7 @@ ls('firefox/', function(err, tree)
                 //console.log(object.Time, ":", object.Value);
                 master_object[object.Time] = master_object[object.Time] || {}
                 var value = Math.round(object.Value * 100) / 100;
-                if(value < 1000)
-                {
                     master_object[object.Time][short_file_name] = value;
-                }
             }
             //console.log(files[file_name]);
             //console.log(file);
